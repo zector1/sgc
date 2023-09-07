@@ -70,7 +70,7 @@ tr:nth-child(odd) {
 }
 
 tr{
-    transition: background-color 0.1s;
+    transition: background-color 0.2s;
 }
 
 th {
