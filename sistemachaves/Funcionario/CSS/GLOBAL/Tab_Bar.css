@@ -25,7 +25,7 @@ body{
 .Header{
     height: 791px;
     width: 220px;
-    overflow: hidden;
+    overflow-y: scroll;
     background-image: linear-gradient(180deg, #38507D 0%, #23314E 100%);;
     position: relative;
     box-shadow: 10px 0px 20px rgba(0,0,0,0.05);
@@ -168,7 +168,7 @@ body{
 }
 /*Sobre*/
 .Li_Barra:nth-child(6){
-    margin-top: 120px;
+    
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -180,15 +180,16 @@ body{
     background-color: #5977A5;
     transition: 0.5s ease-in-out;
 }
-.Li_Barra:nth-child(6) > a{
-    margin-top: 10px;
-}
+/* Div excluída, porque dava espaçamento no sexto elemento da barra lateral e agora existem mais links, então o espaçamento é na décima linha.*/
+
+
 /*Exit*/
-.Li_Barra:nth-child(7){
+.Li_Barra:nth-child(10){   /* Agora tem espaçamento no 10° elemento.*/
+
     margin-top: 50px;
 
 }
-.Li_Barra:nth-child(7) > a{
+.Li_Barra:nth-child(10) > a{
     height: 50px;
     width: 50px;
     display: flex;

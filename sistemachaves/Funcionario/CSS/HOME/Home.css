@@ -1289,7 +1289,8 @@
     width: 1220px;
     transition: 0.5s ease-in-out;
     overflow-x: hidden;
-    height: 420px;
+    overflow-y: hidden;
+    height: 250px;
     /*background: #00FF0A;*/
 }
 
@@ -1478,7 +1479,7 @@
     align-items: center;
     background-image: linear-gradient(160deg, #2D4065, #2f4f8f 200%);
     min-width: 270px;
-    height: 350px;
+    height: 220px;
     border-radius: 15px;
     position: relative;
     z-index: 0;
@@ -1514,7 +1515,7 @@
 
 /*img chave*/
 .Bloco_Chaves_LI_DISP>div:nth-child(2)>img {
-    width: 70px;
+    width: 40px;
     transform: rotate(300deg);
 }
 
@@ -1527,8 +1528,10 @@
 
 .Bloco_Chaves_LI_DISP>div:nth-child(3)>h4 {
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 30px;
+    font-size: 18px;
     color: white;
+    position: relative;
+    bottom:30px;
 }
 
 .Bloco_Chaves_LI_DISP>div:nth-child(3)>span {
@@ -1538,6 +1541,8 @@
     line-height: 2px;
     margin-top: 10px;
     color: #7DA9FF;
+    position: relative;
+    bottom:20px;
 }
 
 .Bloco_Chaves_LI_DISP>div:nth-child(3)>div {
@@ -1552,6 +1557,8 @@
 
 .Bloco_Chaves_LI_DISP>div:nth-child(3)>div>h4 {
     font-weight: 600;
+    position: relative;
+    bottom:15px;
 }
 
 .Bloco_Chaves_LI_DISP>div:nth-child(3)>div>div {
@@ -1560,6 +1567,8 @@
     height: 10px;
     border-radius: 10px;
     background-color: #00FF0A;
+    position: relative;
+    bottom:15px;
 }
 
 /*submits*/
@@ -1571,16 +1580,19 @@
 }
 
 .Bloco_Chaves_LI_DISP>div:nth-child(4)>input {
-    width: 110px;
-    height: 35px;
+    width: 90px;
+    height: 30px;
     border: 0px;
     border-radius: 12px;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
+    
     color: white;
-    font-size: 15px;
+    font-size: 13px;
     transition: all 0.2s ease-in-out;
     cursor:pointer;
+    position: relative;
+    bottom:24px;
 }
 
 .Bloco_Chaves_LI_DISP>div:nth-child(4)>input:hover {
@@ -1696,3 +1708,12 @@
 .Bloco_Chaves_LI_USO>div:nth-child(4)>input:nth-child(2) {
     background-image: linear-gradient(270deg, #414141 0%, #414141 100%);
 }
+
+
+.SubMenu {
+    display: block;
+    
+}
+
+
+

@@ -1,7 +1,6 @@
 
-
 .indicador2{
-    top: 641px;
+    top: 439px;
 }
 .indicador3{
     top: 458px;
@@ -79,11 +78,3 @@ input[type=reset] {
     text-align: center; 
   }
   
-  #nascimento{
-    border-color: white;
-    border-radius: 5px;
-  }
-  #horario{
-    border-radius: 5px;
-    border-color: white;
-  }

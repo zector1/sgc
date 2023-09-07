@@ -208,7 +208,7 @@ session_start();
                 </div>
                 <!-- Alternativa Logo SGC -->
                 <div>
-                    <img src="../Assets/Chave.png" alt="Logo SGC">
+                    <img src="../Assets/chavehomee.png" alt="Logo SGC">
     
                 </div>  
             </div>
@@ -233,6 +233,7 @@ session_start();
                             </div>
                             <span class="Name_Item_Barra Status1">Gerenciamento</span>
                         </a>
+        
                     </li>
                     <!-- Item 3 = Pendetes -->
                     <li class="Li_Barra">
@@ -243,6 +244,31 @@ session_start();
                             <span class="Name_Item_Barra Status1">Pendente</span>
                         </a>
                     </li>
+                    <li class="Li_Barra">
+                        <a href="../Funcionario/Pendente.php" class="Item_Barra">
+                            <div class="Div_Item_Barra">
+                                <i class='bx bxs-user'></i> <!-- nos mudadmos -->
+                            </div>
+                            <span class="Name_Item_Barra Status1"> Gerenciamento de aluno</span>
+                        </a>
+                    </li>
+                    <li class="Li_Barra">
+                        <a href="../Funcionario/gerenciamentochave.php" class="Item_Barra ">
+                            <div class="Div_Item_Barra">
+                                <i class='bx bxs-key'></i> <!-- nos mudadmos -->
+                            </div>
+                            <span class="Name_Item_Barra Status1"> Gerenciamento de chave</span>
+                        </a>
+                    </li>
+                    <li class="Li_Barra">
+                        <a href="../Funcionario/Pendente.php" class="Item_Barra">
+                            <div class="Div_Item_Barra">
+                                <i class='bx bxs-buildings'></i> <!-- nos mudadmos -->
+                            </div>
+                            <span class="Name_Item_Barra Status1"> Gerenciamento de prédio</span>
+                        </a>
+                    </li>
+                   
                     <!-- Item 4 = Solicitações -->
                     <li class="Li_Barra">
                         <a href="../Funcionario/Solicitacoes.php" class="Item_Barra">

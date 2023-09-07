@@ -1,27 +1,32 @@
-<?php
-include_once '../config/agendamentoHelper.php';
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SGC - AGENDAMENTO</title>
+    <title>SGC - CADASTRO</title>
     <!-- CSS GLOBAL -->
-    <link href='./CSS/GLOBAL/Tab_Bar.css' rel='stylesheet'>
+    <link href='../Funcionario/CSS/GLOBAL/Tab_Bar.css' rel='stylesheet'>
+    <link href="../Funcionario/CSS/GERENCIAMENTO/GerenciamentoGlobal.css" rel="stylesheet" type="text/css" />
     <!-- CSS -->
-    <link href="./CSS/agendamento.css" rel="stylesheet" type="text/css" />
-    <link href="./CSS/GERENCIAMENTO/GerenciamentoGlobal.css" rel="stylesheet" type="text/css" />
-    <link href="./CSS/agendamento.css" rel="stylesheet" type="text/css" />
+    <link href="../Funcionario/CSS/GERENCIAMENTO/alterarchave.css" rel="stylesheet" type="text/css" />
+    <link href="../Funcionario/CSS/gerenciamentochave.css" rel="stylesheet" type="text/css" />
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+
     <!-- JAVASCRIPT GLOBAL -->
-    <script src="./JS/GLOBAL/TabBar.js" type="text/javascript" defer></script>
+    <script src="../Funcionario/JS/GLOBAL/TabBar.js" type="text/javascript" defer></script>
     <!-- JAVASCRIPT -->
-    <script src="./JS/agendamento.js" type="text/JavaScript" defer></script>
+    <script src="../Funcionario/JS/GERENCIAMENTO/alterarchave.js" type="text/javascript" defer></script>
+    <script src="../Funcionario/JS/GERENCIAMENTO/Gerenciamento.js" type="text/javascript" defer></script>
+    <!--JQUERY/AJAX-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+
     <!-- CSS ASSETS -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link href='./CSS/GLOBAL/Fonts&Color.css' rel='stylesheet'>
+    <link href='../Funcionario/CSS/Fonts&Color.css' rel='stylesheet'>
 </head>
 <body>
     <div class="indicador1">
@@ -89,7 +94,7 @@ session_start();
                         </a>
                     </li>
                     <li class="Li_Barra">
-                        <a href="../Funcionario/Pendente.php" class="Item_Barra">
+                        <a href="../Funcionario/Pendente.php" class="Item_Barra active">
                             <div class="Div_Item_Barra">
                                 <i class='bx bxs-key'></i> <!-- nos mudadmos -->
                             </div>
@@ -116,7 +121,7 @@ session_start();
                     </li>
                     <!-- Item 5 = Agendamento -->
                     <li class="Li_Barra">
-                        <a href="../Funcionario/Agendamento.php" class="Item_Barra active">
+                        <a href="../Funcionario/Agendamento.php" class="Item_Barra">
                             <div class="Div_Item_Barra">
                                 <i class='bx bx-bell'></i>
                             </div>
@@ -149,134 +154,87 @@ session_start();
     </header>
     <main class="Main">
         <!-- Bloco com Nome do Usuário -->
-        <?php
-            if (isset($_SESSION['agendar_entregue'])):
-            ?>
-            <script>
-                alert('Chave entregue com sucesso!');
-            </script>
-            <?php
-            endif;
-            unset($_SESSION['agendar_entregue']);
-            ?>
         <div class="Main_Cont1">
-        <i class='bx bx-chevron-right' ></i>
-            <h3>Chaves Agendadas</h3>
+            <i class='bx bx-chevron-right' ></i>
+            <h3>Gerenciamento de chaves</h3>
         </div>
         <!-- Bloco com Predios -->
-        <?php
-        $pendentes = getPendentes();
-        foreach ($pendentes as $pen) {
-            // $data = substr($pen->data_agendamento, 0, 10);
-            echo '<div class="Main_Cont2">' . 
-            
-            '<form name="formAgend" method="POST" action="../config/updateAgendarHelper.php" target="_self" onsubmit="return atualizar()">'.
-            '<div class = "container-pendente">
-            <input style="display: none" name="tipo" id="tipo" type="text" value="updateAgendar">
-            <img src="../Assets/Chave.png" alt="chave do container">
-            <div class = "linha-horizontal"></div>'.
-            //Inicio informacoes pendente
-            '<div class="informacoes-pendente">' .
-            '<div class="container-input">'.
-            '<label for="idChave">Chave:</label>'.
-            '<input type="number" readonly name="idChave" value="'. $pen->id_chave . '" class="input">' .
-            '</div>'.
-            '<div class="container-input">' .
-            '<label for="nome_cliente">Usuário: </label>'.
-            '<input type="text" readonly name="nome_cliente" value="'. $pen->nome_cliente . '" class="input">' .
-            '</div>'.
-            '<div class="container-input">'.
-            '<label for="data_agendamento">Data:</label>'.
-            '<input type="text" readonly name="data_agendamento" value="'. $pen->data_agendamento->format('d/m/Y'). '" class="input">'.
-            '</div>'.
-            '</div>'.
-            //Fim informações pendente
-            '<div class="botao-entregar">
-            <input type="submit" value="entregue" class="botao-chave">
-            <i class="bx bx-check-circle" id="icone-entregar"></i>
-            </div>
-            </div>
-            </form>
-            </div>';
-        }
-        ?>
-          <div class="Main_Cont2">
+        <div class="Main_Cont2">
 <fieldset>
 
         <div class="tabelabox">
-        <legend>Chaves Agendadas</legend>
+        <legend>Chaves Cadastradas</legend>
        
            <!-- Adicionar Chave -->
            <table id="tabchave">
         <thead>
             <tr>
                 <th>N°                 <i class='bx bxs-sort-alt'></i></th>
-                <th>Pessoa                 <i class='bx bxs-sort-alt'></th>
-                <th>Data                       <i class='bx bxs-sort-alt'></th>
-                <th>H.Entrada                         <i class='bx bxs-sort-alt'></th>
-                <th>H.Saída                         <i class='bx bxs-sort-alt'></th>
-                <th>Excluir                         <i class='bx bxs-sort-alt'></th>
+                <th>Situação                 <i class='bx bxs-sort-alt'></th>
+                <th>Prédio                         <i class='bx bxs-sort-alt'></th>
+                <th>Descrição                          <i class='bx bxs-sort-alt'></th>
+                <th colspan="2" class="acao-header">Ações                                                        <i class='bx bxs-sort-alt'></th>
 
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td>1</td>
-                <td>José Víctor</td>
-                <td><input type="date" name="nascimento" id="nascimento"><br></td>
-                <td><input type="time" id="horario" name="horario"></td>
-                <td> <input type="time" id="horario" name="horario"></td> 
+                <td>Disponível</td>
+                <td>1</td>
+                <td>Sala</td>
+                <td> <input type="reset" value="Editar"></td> 
                 <td> <input type="reset" value="Excluir"></td> 
             </tr>
             <tr>
                 <td>2</td>
-                <td>Gustavo</td>
-                <td><input type="date" name="nascimento" id="nascimento"><br></td>
-                <td><input type="time" id="horario" name="horario"></td>
-                <td> <input type="time" id="horario" name="horario"></td> 
+                <td>Inativo</td>
+                <td>2</td>
+                <td>Auditório</td>
+                <td> <input type="reset" value="Editar"></td> 
                 <td> <input type="reset" value="Excluir"></td> 
             </tr>
             <tr>
                 <td>3</td>
-                <td>Antônio</td>
-                <td><input type="date" name="nascimento" id="nascimento"><br></td>
-                <td><input type="time" id="horario" name="horario"></td>
-                <td> <input type="time" id="horario" name="horario"></td> 
+                <td>Em uso</td>
+                <td>3</td>
+                <td>Laboratório</td>
+                <td> <input type="reset" value="Editar"></td> 
                 <td> <input type="reset" value="Excluir"></td> 
             </tr>
             <tr>
                 <td>4</td>
-                <td>Paulo Victor</td>
-                <td><input type="date" name="nascimento" id="nascimento"><br></td>
-                <td><input type="time" id="horario" name="horario"></td>
-                <td> <input type="time" id="horario" name="horario"></td> 
+                <td>Disponível</td>
+                <td>1</td>
+                <td>Sala</td>
+                <td> <input type="reset" value="Editar"></td> 
                 <td> 
                  <input type="reset" value="Excluir"></td> 
             </tr>
             <tr>
                 <td>5</td>
-                <td>Rodrigo</td>
-                <td><input type="date" name="nascimento" id="nascimento"><br></td>
-                <td><input type="time" id="horario" name="horario"></td>
-                <td> <input type="time" id="horario" name="horario"></td> 
+                <td>Disponível</td>
+                <td>1</td>
+                <td>Sala</td>
+                <td> <input type="reset" value="Editar"></td> 
                 <td> 
                  <input type="reset" value="Excluir"></td> 
             </tr>
             <tr>
                 <td>6</td>
-                <td>Ricardo</td>
-                <td><input type="date" name="nascimento" id="nascimento"><br></td>
-                <td><input type="time" id="horario" name="horario"></td>
-                <td> <input type="time" id="horario" name="horario"></td> 
+                <td>Disponível</td>
+                <td>1</td>
+                <td>Sala</td>
+                <td> <input type="reset" value="Editar"></td> 
                 <td> 
                  <input type="reset" value="Excluir"></td> 
             </tr>
             <tr>
                 <td>7</td>
-                <td>Benício</td>
-                <td><input type="date" name="nascimento" id="nascimento"><br></td>
-                <td><input type="time" id="horario" name="horario"></td>
-                <td> <input type="time" id="horario" name="horario"></td> 
+                <td>Disponível</td>
+                <td>1</td>
+                <td>Sala</td>
+                <td> <input type="reset" value="Editar"></td> 
                 <td> 
                  <input type="reset" value="Excluir"></td> 
             </tr>
@@ -290,8 +248,7 @@ session_start();
         </div>
         </fieldset>
 </div>
-        <div class="Main_Cont3">
-        </div>
+
     </main>
 </body>
 </html>
