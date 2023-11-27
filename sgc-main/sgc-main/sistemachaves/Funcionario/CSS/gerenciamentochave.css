@@ -1,0 +1,80 @@
+
+/* .indicador2{
+    top: 439px;
+} */
+.indicador3{
+    top: 458px;
+}
+.Main{
+    overflow-y: scroll;
+    
+}
+.Main_Cont1{
+    margin-left: 55px;
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+    font-size: 25px;
+    
+    font-family: 'Alata', sans-serif;
+    color: white;
+}
+.Main_Cont1 > h3{
+    font-weight: 500;
+}
+.Main_Cont1 > i {
+    color: #e7e7e7;
+    font-size: 45px;
+    font-weight: 500;
+    
+}
+.frase{
+    font-family: 'Alata', sans-serif;
+    color: white;
+    font-size: 25px;
+    font-weight: 500;
+    padding-bottom: 10px;
+}
+.frase > h3{
+    
+    font-weight: 00;
+    
+}
+
+.Main_Cont2{
+    margin-left: 45px;
+    width: 1100px;
+    height: 400px;
+    transition: all 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    
+}
+.Main_Cont2.active{
+    width: 1300px;
+    margin-left: 45px;
+    transition: all 0.5s ease-in-out;
+}
+input[type=reset] {
+    background-color: transparent;
+    color: #f2f2f2;
+    padding: 8px 13px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0 auto;
+    margin-top: 2px;
+    text-align: center;
+  }
+  
+  input[type=reset]:hover {
+    background-color: red;
+  }
+  
+  .acao-header{
+    text-align: center; 
+  }
+  

@@ -1,0 +1,224 @@
+@import url(/Funcionario/CSS/Tab_Bar.css);
+@import url('https://fonts.googleapis.com/css2?family=Armata&display=swap');
+
+.indicador2{
+    top: 258px;
+}
+.indicador3{
+    top: 458px;
+}
+.Main{
+    overflow: hidden;
+}
+.Main_Cont1{
+    margin-left: 55px;
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+    font-size: 25px;
+    
+    font-family: 'Alata', sans-serif;
+    color: white;
+}
+.Main_Cont1 > h3{
+    font-weight: 500;
+}
+.Main_Cont1 > i {
+    color: #4b69a7;
+    font-size: 45px;
+    font-weight: 500;
+    
+}
+.frase{
+    font-family: 'Alata', sans-serif;
+    color: white;
+    font-size: 25px;
+    font-weight: 500;
+    padding-bottom: 10px;
+}
+.frase > h3{
+    
+    font-weight: 00;
+    
+}
+
+.Main_Cont2{
+    margin-left: 45px;
+    width: 1100px;
+    height: 500px;
+    transition: all 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    
+}
+.Main_Cont2.active{
+    width: 1300px;
+    margin-left: 45px;
+    transition: all 0.5s ease-in-out;
+}
+.Dados_Basicos{
+    font-size: 20px;
+    margin-left: 55px;
+    margin-top: 55px;
+    display: flex;
+    
+    
+   
+    flex-direction: column;
+    
+    
+    
+    
+    
+}
+.box{
+    background-color: #28395a;
+    border: 0px solid #FF9900;
+    border-radius: 15px;
+    padding: 24px 91px;
+    box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+}
+.box2{
+    background-color: #28395a;
+    border: 0px solid #FF9900;
+    border-radius: 15px;
+    padding: 24px 91px;
+    box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.3);
+    
+}
+
+#alterarSenhaButton {
+    background-color: #f0f0f0;
+    border: 1px solid #FF9900;
+    
+    font-family: "Armata";
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+
+#alterarSenhaButton:hover {
+    background-color: #ddd;
+}
+
+#alterarSenhaButton:active {
+    transform: scale(0.95);
+}
+
+
+
+
+/* AQUIIIIIIIIIIIIIII */
+
+
+.Dados_Basicos,
+.matricula,
+.email,
+.historico,
+.senha,
+.nome{
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px; /* Adicione espaçamento vertical */
+}
+
+.Dados_Basicos > h4,
+.matricula > h4,
+.email > h4,
+.historico > h4,
+
+.nome > h4,
+
+.senha > h4 {
+    
+    margin: 0;
+    font-size:20px;
+    color:white;
+    font-family: "Armata";
+    margin-right:20px
+}
+.Dados_Basicos > p,
+.matricula > p,
+.email > p,
+.historico > p,
+.nome > p,
+.senha > p{
+    margin: 0;
+    font-size:20px;
+   
+    color:white;
+
+    font-family: "Armata";
+}
+
+.Dados_Basicos > h4,
+.matricula > h4,
+.email > h4,
+.historico > h4,
+.nome > h4,
+.senha > h4
+ {
+    margin-right: 10px; /* Adicione espaçamento horizontal entre h4 e p */
+}
+.input-container {
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 8px;
+    background-color: white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.custom-input {
+    border: none;
+    outline: none;
+    width: 231px;
+    padding: 3px 1px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.custom-input2 {
+    border: none;
+    outline: none;
+    width: 181px;
+    padding: 3px 1px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.field {
+    display: flex;
+    align-items: center;
+}
+
+.field h4 {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.field p {
+    margin: 0;
+    
+    
+}
+.field label {
+    color:white;
+    padding: 9px;
+    font-family: "Armata";
+    font-weight: bold;
+}
+
+/* ... Resto do seu CSS ... */
